@@ -3,7 +3,7 @@
         "browser": true,
         "es2021": true
     },
-    "ignorePatterns": ["/dist", "**/vendor/*.js", "/build", "*.js"],
+    "ignorePatterns": ["/dist", "**/vendor/*.js", "*.js"],
     "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -11,5 +11,8 @@
         "sourceType": "module"
     },
     "plugins": ["@typescript-eslint"],
-    "rules": { "semi": ["error", "always"], "quotes": ["error", "single"] }
+    "rules": {
+        "semi": ["error", "always"],
+        "quotes": ["error", "single"]
+    }
 }

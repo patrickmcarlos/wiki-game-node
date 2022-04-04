@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import { baseRouter, usersRouter } from './src/routes';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
 
 const app = express();
@@ -27,7 +28,7 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
 });
 
 // Catch all
-app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
+app.use(function (err: any, req: Request, res: Response) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};

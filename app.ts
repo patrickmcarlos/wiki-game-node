@@ -4,10 +4,10 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import { baseRouter, articlesRouter, testRouter } from './src/routes';
+import cors from 'cors';
+import dotenv from 'dotenv';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require('dotenv').config();
-
+dotenv.config();
 const app = express();
 
 /** EXPRESS SETUP */
@@ -16,6 +16,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+/** CORS */
+const allowedOrigins = ['http://localhost:3000'];
+const corsOptions: cors.CorsOptions = {
+    origin: allowedOrigins,
+};
+
+app.use(cors(corsOptions));
 
 /** ROUTES */
 app.use('/', baseRouter);
@@ -39,7 +47,7 @@ app.use(function (err: any, req: Request, res: Response) {
 });
 
 /** SERVER SETUP */
-app.set('port', process.env.PORT || 6000);
+app.set('port', process.env.PORT || 6001);
 
 app.listen(app.get('port'), () => {
     console.log(`Express server listening on port ${process.env.PORT}`);

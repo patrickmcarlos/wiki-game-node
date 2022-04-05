@@ -1,6 +1,6 @@
 import express from 'express';
-import usersController from '../controllers/users.controllers';
+import articlesController from '../controllers/articles.controllers';
 const router = express();
 
 /* GET articles listing. */
-export const articlesRouter = router.get('/', usersController.get);
+export const articlesRouter = router.get('/', articlesController.get);

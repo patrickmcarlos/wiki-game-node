@@ -11,6 +11,7 @@ export const getRandomArticles = async (numArticles?: number) => {
     ]);
 
     const res = await axios.get(WIKI_API_URL, { params });
+    const articles = res.data.query.random;
 
-    return res.data;
+    return { data: articles };
 };

@@ -3,8 +3,7 @@ import createError from 'http-errors';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import { baseRouter, usersRouter } from './src/routes';
-import { testRouter } from './src/routes/test.routes';
+import { baseRouter, articlesRouter, testRouter } from './src/routes';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
@@ -20,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /** ROUTES */
 app.use('/', baseRouter);
-app.use('/users', usersRouter);
+app.use('/articles', articlesRouter);
 app.use('/test', testRouter);
 
 /** ERROR HANDLING */

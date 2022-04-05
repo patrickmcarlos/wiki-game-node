@@ -1,2 +1,3 @@
 export * from './base.routes';
-export * from './users.routes';
+export * from './articles.routes';
+export * from './test.routes';

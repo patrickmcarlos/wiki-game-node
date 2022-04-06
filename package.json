@@ -28,6 +28,7 @@
         "morgan": "~1.9.1",
         "nodemon": "^2.0.15",
         "pg": "^8.7.3",
+        "string-strip-html": "8.3.0",
         "ts-node": "^10.7.0",
         "wikipedia": "^1.1.8"
     },

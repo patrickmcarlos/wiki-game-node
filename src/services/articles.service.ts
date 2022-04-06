@@ -1,17 +1,9 @@
-import axios from 'axios';
+import wikipedia, { wikiSummary } from 'wikipedia';
 
-const WIKI_API_URL = 'https://en.wikipedia.org/w/api.php';
+export const getRandomArticle = async () => {
+    const res: wikiSummary = (await wikipedia.random('summary')) as wikiSummary;
 
-export const getRandomArticles = async (numArticles?: number) => {
-    const params = new URLSearchParams([
-        ['action', 'query'],
-        ['format', 'json'],
-        ['list', 'random'],
-        ['rnlimit', String(numArticles ?? 1)],
-    ]);
-
-    const res = await axios.get(WIKI_API_URL, { params });
-    const articles = res.data.query.random;
-
-    return { data: articles };
+    return {
+        data: { title: res.titles.normalized, summary: res.extract_html },
+    };
 };

@@ -3,7 +3,8 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "yarn webpack build && nodemon ./dist/app.js",
+        "start": "node ./dist/app.js",
+        "start:dev": "nodemon ./dist/app.js",
         "build": "yarn webpack build --mode development",
         "build:dev": "yarn webpack build --mode development",
         "build:prod": "yarn webpack build --mode production",

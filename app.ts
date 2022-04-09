@@ -26,11 +26,6 @@ const corsOptions: cors.CorsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', clientUrl);
-    next();
-});
-
 /** ROUTES */
 app.use('/', baseRouter);
 app.use('/articles', articlesRouter);
@@ -56,6 +51,8 @@ app.use(function (err: any, req: Request, res: Response) {
 app.set('port', process.env.PORT || 6001);
 
 app.listen(app.get('port'), () => {
-    console.log({ allowedOrigins });
-    console.log(`Express server listening on port ${process.env.PORT}`);
+    console.log(
+        `Express server listening on port ${process.env.PORT} in ${process.env.NODE_ENV} mode.`,
+    );
+    console.log(`Allowed origin: ${clientUrl}`);
 });

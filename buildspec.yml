@@ -11,12 +11,12 @@ phases:
         commands:
             - echo Build started on `date`
             - yarn install
-            - yarn build
+            - yarn build:prod
     post_build:
         commands:
             - echo Build completed on `date`
 artifacts:
-    baseDirectory: /dist
+    baseDirectory: /
     files:
         - '**/*'
 cache:

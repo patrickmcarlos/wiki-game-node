@@ -4,7 +4,9 @@
     "private": true,
     "scripts": {
         "start": "yarn webpack build && nodemon ./dist/app.js",
-        "build": "yarn webpack build",
+        "build": "yarn webpack build --mode development",
+        "build:dev": "yarn webpack build --mode development",
+        "build:prod": "yarn webpack build --mode production",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
         "prepare": "husky install"

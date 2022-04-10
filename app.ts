@@ -18,8 +18,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /** CORS */
-const clientUrl = process.env.CLIENT_BASE_URL ?? 'http://localhost:3000';
-const allowedOrigins = [clientUrl];
+const allowedOrigins = [
+    process.env.DEV_CLIENT_BASE_URL as string,
+    process.env.PROD_CLIENT_BASE_URL as string,
+];
 const corsOptions: cors.CorsOptions = {
     origin: allowedOrigins,
 };

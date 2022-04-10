@@ -56,5 +56,5 @@ app.listen(app.get('port'), () => {
     console.log(
         `Express server listening on port ${process.env.PORT} in ${process.env.NODE_ENV} mode.`,
     );
-    console.log(`Allowed origin: ${clientUrl}`);
+    console.log(`Allowed origin: ${allowedOrigins}`);
 });
